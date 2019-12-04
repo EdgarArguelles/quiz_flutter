@@ -12,7 +12,7 @@ class Quiz extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
+      children: <Widget>[
         Question(_questions[_questionIndex]['question']),
         ...(_questions[_questionIndex]['answers'] as List<Map<String, Object>>)
             .map((a) => Answer(a['text'], () => _onAnswerQuestion(a['score'])))
