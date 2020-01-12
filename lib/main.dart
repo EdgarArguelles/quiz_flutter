@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import './quiz.dart';
-import './result.dart';
+import 'package:quiz_flutter/quiz.dart';
+import 'package:quiz_flutter/result.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,9 +10,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var _questionIndex = 0;
-  var _totalScore = 0;
-  final _questions = const [
+  int _questionIndex = 0;
+  int _totalScore = 0;
+  final List<Map<String, Object>> _questions = const [
     {
       'question': "What's your favorite color?",
       'answers': [
@@ -43,10 +43,11 @@ class _MyAppState extends State<MyApp> {
   ];
 
   void _resetQuiz() => setState(() => _questionIndex = 0);
-  void _answerQuestion(score) => setState(() {
-    _questionIndex++;
-    _totalScore += score;
-  });
+
+  void _answerQuestion(int score) => setState(() {
+        _questionIndex++;
+        _totalScore += score;
+      });
 
   @override
   Widget build(BuildContext context) {
